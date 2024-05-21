@@ -9,11 +9,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Theme
       accentColor="blue"
-      grayColor="sand"
+      grayColor="grey"
       panelBackground="solid"
       radius="large"
+      className=" font-sans bg-blue-100"
     >
-      <App />
+      <App className="bg-blue-200" />
     </Theme>
   </React.StrictMode>
 );

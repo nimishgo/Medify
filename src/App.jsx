@@ -1,11 +1,12 @@
-import { Button } from "@radix-ui/themes";
-import "./App.css";
-
+import HeadText from "./components/HeadText";
+import NavBar from "./components/NavBar";
+import SearchContainer from "./components/SearchContainer";
 function App() {
   return (
     <>
-      <div>Hello World</div>
-      <Button>hello world</Button>
+      <HeadText />
+      <NavBar />
+      <SearchContainer />
     </>
   );
 }
