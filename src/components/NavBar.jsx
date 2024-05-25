@@ -1,5 +1,6 @@
 import { Box, Button, Flex } from "@radix-ui/themes";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 export default function NavBar() {
   const fields = [
     "Find Doctors",
@@ -11,9 +12,11 @@ export default function NavBar() {
   ];
   return (
     <>
-      <Flex className="p-4 flex justify-around  ">
-        <Box className="logo justify-center ">
-          <img src={logo} alt="" className="w-28" />
+      <Flex className="p-4 flex justify-around">
+        <Box className="logo justify-center cursor-pointer ">
+          <Link to="/">
+            <img src={logo} alt="" className="w-28" />
+          </Link>
         </Box>
         <Flex gap="5" align="center">
           {fields.map((x) => (
@@ -22,7 +25,9 @@ export default function NavBar() {
             </Box>
           ))}
           <Button className="cursor-pointer p-5 bg-customBlue-500">
-            My Booking
+            <Link to="bookings" className="cursor-pointer">
+              My Booking
+            </Link>
           </Button>
         </Flex>
       </Flex>
