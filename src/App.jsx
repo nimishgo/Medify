@@ -1,13 +1,21 @@
-import HeadText from "./components/HeadText";
-import NavBar from "./components/NavBar";
-import SearchContainer from "./components/SearchContainer";
+import Header from "./components/Header";
+import MainFooter from "./components/MainFooter";
+import { Theme } from "@radix-ui/themes";
+import "@radix-ui/themes/styles.css";
+import { Outlet } from "react-router-dom";
 function App() {
   return (
-    <>
-      <HeadText />
-      <NavBar />
-      <SearchContainer />
-    </>
+    <Theme
+      accentColor="blue"
+      grayColor="grey"
+      panelBackground="solid"
+      radius="large"
+      className=" font-sans bg-blue-100"
+    >
+      <Header />
+      <Outlet />
+      <MainFooter />
+    </Theme>
   );
 }
 

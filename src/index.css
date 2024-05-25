@@ -5,6 +5,8 @@
 @layer base {
   body {
     @apply font-sans;
+    margin: 0;
+    padding: 0;
   }
 }
 

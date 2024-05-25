@@ -1,20 +1,35 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import "@radix-ui/themes/styles.css";
-import { Theme } from "@radix-ui/themes";
 import App from "./App.jsx";
 import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ShowHospital from "./components/ShowHospital.jsx";
+import Bookings from "./components/Bookings.jsx";
+import Body from "./components/Body.jsx";
+import { HospitalsProvider } from "./utils/useHospitals.jsx";
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/hospitals/:state/:city",
+        element: <ShowHospital />,
+      },
+      {
+        path: "/bookings",
+        element: <Bookings />,
+      },
+      {
+        path: "/",
+        element: <Body />,
+      },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Theme
-      accentColor="blue"
-      grayColor="grey"
-      panelBackground="solid"
-      radius="large"
-      className=" font-sans bg-blue-100"
-    >
-      <App className="bg-blue-200" />
-    </Theme>
-  </React.StrictMode>
+  <HospitalsProvider>
+    <RouterProvider router={appRouter} />
+  </HospitalsProvider>
 );
